@@ -6,7 +6,10 @@ Team member: DevOps/Configuration Lead
 
 import os
 from typing import Optional
+from dotenv import load_dotenv
 
+# Load environment variables
+load_dotenv()
 class Config:
     """Application configuration settings"""
     

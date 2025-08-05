@@ -9,8 +9,7 @@ import json
 import hashlib
 import time
 from typing import List, Optional, Dict, Any
-import aioredis
-from aioredis import Redis
+import redis.asyncio as redis
 
 from models.schemas import CacheServiceStats
 from utils.config import Config
@@ -23,7 +22,7 @@ class CacheService:
     
     def __init__(self):
         self.config = Config()
-        self.redis: Optional[Redis] = None
+        self.redis: Optional[redis.Redis] = None
         self.fallback_cache: Dict[str, Any] = {}  # In-memory fallback
         self.stats = CacheServiceStats(
             requests_processed=0,
@@ -48,7 +47,7 @@ class CacheService:
         try:
             # Try Redis URL first, then host/port
             if self.config.REDIS_URL:
-                self.redis = await aioredis.from_url(
+                self.redis =  redis.from_url(
                     self.config.REDIS_URL,
                     encoding="utf-8",
                     decode_responses=True,
@@ -56,7 +55,7 @@ class CacheService:
                     socket_connect_timeout=2.0
                 )
             else:
-                self.redis = await aioredis.Redis(
+                self.redis =  redis.Redis(
                     host=self.config.REDIS_HOST,
                     port=self.config.REDIS_PORT,
                     db=self.config.REDIS_DB,

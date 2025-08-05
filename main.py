@@ -19,6 +19,10 @@ from services.ai_service import AIService
 from services.cache_service import CacheService
 from utils.config import Config
 from utils.logger import setup_logger
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Setup logging
 logger = setup_logger(__name__)

@@ -43,7 +43,7 @@ class HackRxRequest(BaseModel):
         return valid_questions
     
     class Config:
-        schema_extra = {
+        json_schema_extra  = {
             "example": {
                 "documents": "https://example.com/document.pdf",
                 "questions": [
@@ -58,7 +58,7 @@ class HackRxResponse(BaseModel):
     answers: List[str]
     
     class Config:
-        schema_extra = {
+        json_schema_extra  = {
             "example": {
                 "answers": [
                     "The main topic is artificial intelligence applications.",
@@ -74,7 +74,7 @@ class HealthResponse(BaseModel):
     timestamp: float
     
     class Config:
-        schema_extra = {
+        json_schema_extra  = {
             "example": {
                 "status": "healthy",
                 "services": {
