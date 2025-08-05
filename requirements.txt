@@ -1,0 +1,33 @@
+# Core Framework
+fastapi
+pydantic
+uvicorn[standard]
+
+# AI/ML Libraries
+google-genai
+sentence-transformers
+scikit-learn
+
+# Document Processing
+pypdf
+
+# HTTP Requests
+aiohttp
+requests
+
+# Caching
+redis
+aioredis
+
+# Data Processing
+numpy
+
+# Utilities
+python-multipart
+python-dotenv
+
+# Development Dependencies (optional)
+pytest
+pytest-asyncio
+black
+flake8
