@@ -17,7 +17,6 @@ requests
 
 # Caching
 redis
-aioredis
 
 # Data Processing
 numpy
@@ -25,9 +24,3 @@ numpy
 # Utilities
 python-multipart
 python-dotenv
-
-# Development Dependencies (optional)
-pytest
-pytest-asyncio
-black
-flake8

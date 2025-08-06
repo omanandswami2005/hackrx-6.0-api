@@ -56,7 +56,7 @@ class EmbeddingService:
     
     def _load_model_sync(self) -> SentenceTransformer:
         """Load model synchronously (runs in thread pool)"""
-        model = SentenceTransformer(self.config.EMBEDDING_MODEL)
+        model = SentenceTransformer(self.config.EMBEDDING_MODEL, device='cpu')
         model.max_seq_length = self.config.EMBEDDING_MAX_SEQ_LENGTH
         return model
     
